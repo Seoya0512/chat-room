@@ -4,7 +4,7 @@ const WebSocket = require("ws");
 const http = require("http");
 
 const app = express();
-const port = 3000;
+const port = 8080;
 
 app.set("view engine", "pug");
 app.set("views", __dirname + "/public/views");

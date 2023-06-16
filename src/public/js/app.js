@@ -6,8 +6,16 @@ const messageForm = document.querySelector("#message");
 // Connection to Server
 const socket = new WebSocket(`ws://${window.location.host}`);
 
-socket.addEventListener("open", () => {
+function handleOpen() {
   console.log("Connected to Server ✅");
+}
+
+socket.addEventListener("open", handleOpen);
+
+socket.addEventListener("message", (message) => {
+  const li = document.createElement("li");
+  li.innerText = message.data;
+  messageList.append(li);
 });
 
 socket.addEventListener("message", (message) => {
